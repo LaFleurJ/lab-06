@@ -13,7 +13,7 @@ public class CityList {
     /**
      * This adds a city to the list if the city does not exist
      * @param city
-     * This is a candidate city to add
+     *   This is a candidate city to add
      */
     public void add(City city) {
         if (cities.contains(city)) {
@@ -25,7 +25,7 @@ public class CityList {
     /**
      * This returns a sorted list of cities
      * @return
-     * Return the sorted list
+     *   Return the sorted list
      */
     public List<City> getCities() {
         List<City> list = cities;
