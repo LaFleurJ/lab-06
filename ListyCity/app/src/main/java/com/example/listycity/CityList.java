@@ -32,5 +32,38 @@ public class CityList {
         Collections.sort(list);
         return list;
     }
+    /**
+     * This checks if a city is in the list when given a city
+     * @param city
+     *   This is a candidate city to check
+     * @return
+     *   Return true if the city is in the list
+     */
+    public boolean hasCity(City city) {
+        return cities.contains(city);
+    }
+    /**
+     * This checks if a city is present in the list. If it is then remove it from the list, if not it throws an execption
+     * @param city
+     *   This is a candidate city to remove
+     *   @throws
+     *   IllegalArgumentException if the city is not in the list
+     */
+    public void removeCity(City city) {
+        if (cities.contains(city)) {
+            cities.remove(city);
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    /**
+     * This returns how many cities are in the list.
+     * @return
+     *   Return the number of cities in the list
+     */
+    public int countCities() {
+        return cities.size();
+    }
 }
 
