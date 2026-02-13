@@ -43,5 +43,48 @@ class CityListTest {
         assertEquals(0, mockCity().compareTo(cityList.getCities().get(1)));
     }
 
+    @Test
+    void testHasCity() {
+        // https://www.infoworld.com/article/3305792/comparing-java-objects-with-equals-and-hashcode.html
+        // read given reference
+        CityList cityList = mockCityList();
+        assertTrue(cityList.hasCity(mockCity()));
+        assertFalse(cityList.hasCity(new City("Winnipeg", "Manitoba")));
+    }
+
+    @Test
+    void testRemoveCity() {
+        CityList cityList = mockCityList(); // add edm
+        assertEquals(1, cityList.countCities());
+        cityList.removeCity(new City("Edmonton", "Alberta"));
+        assertEquals(0, cityList.countCities());
+    }
+
+    @Test
+    void testRemoveCityException() {
+        CityList cityList = mockCityList();
+        assertThrows(IllegalArgumentException.class, () -> {
+            cityList.removeCity(new City("Winnipeg", "Manitoba"));
+        });
+        assertEquals(1, cityList.countCities()); // no change listed
+    }
+
+
+    @Test
+    void testCountCities() {
+        CityList cityList = mockCityList();
+        assertEquals(1, cityList.countCities());
+        cityList.add(new City("Vancouver", "British Columbia"));
+        cityList.add(new City("Calgary", "Alberta"));
+        assertEquals(3, cityList.countCities());
+        cityList.removeCity(new City("Edmonton", "Alberta"));
+        assertEquals(2, cityList.countCities());
+    }
+
+    @Test
+    void testCountEmpty() {
+        CityList cityList = new CityList();
+        assertEquals(0, cityList.countCities());
+    }
 
 }
