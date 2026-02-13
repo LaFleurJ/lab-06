@@ -46,8 +46,8 @@ public class CityList {
      * This checks if a city is present in the list. If it is then remove it from the list, if not it throws an execption
      * @param city
      *   This is a candidate city to remove
-     *   @throws
-     *   IllegalArgumentException if the city is not in the list
+     * @throws IllegalArgumentException
+     *        if the city is not in the list
      */
     public void removeCity(City city) {
         if (cities.contains(city)) {
